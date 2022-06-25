@@ -10,7 +10,7 @@ const styles = {
     content: "object-center object-cover",
   },
 };
-
+import Link from 'next/link';
 import { Product } from 'generated/saleor';
 
 type Props = Pick<Product, "id" | "name" | "thumbnail" | "category">;
@@ -18,6 +18,7 @@ type Props = Pick<Product, "id" | "name" | "thumbnail" | "category">;
 export const ProductElement = ({ id, name, thumbnail, category }: Props) => {
   return (
     <li key={id} className={styles.card}>
+      <Link href={`/product/${id}`}>
       <a>
         <div className={styles.image.aspect}>
           <img src={thumbnail?.url} alt="" className={styles.image.content} />
@@ -27,6 +28,7 @@ export const ProductElement = ({ id, name, thumbnail, category }: Props) => {
           <p className={styles.category}>{category?.name}</p>
         </div>
       </a>
+      </Link>
     </li>
   );
 };

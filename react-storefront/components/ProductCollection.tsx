@@ -1,8 +1,8 @@
 import React from 'react';
 // import { Product, useFetchTwelveProductsQuery } from 'generated/saleor';
 // import { Product, useTShirtProductsQuery } from 'generated/saleor';
-import {ProductElement} from 'components/ProductElement'
-import { Pagination } from './Pagination';
+import {ProductElement, Pagination} from '~/components'
+
 import {
   Product,
   useFilterProductsQuery,

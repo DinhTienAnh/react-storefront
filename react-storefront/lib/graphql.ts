@@ -1,8 +1,15 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { relayStylePagination } from "@apollo/client/utilities";
 
-const client = new ApolloClient({
+export const apolloClient = new ApolloClient({
   uri: "https://vercel.saleor.cloud/graphql/",
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    typePolicies: {
+      Query: {
+        fields: {
+          products: relayStylePagination(),
+        },
+      },
+    }
+  }),
 });
-
-export default client;
